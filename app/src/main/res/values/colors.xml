@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme" parent="HudTheme">
+        <item name="colorPrimary">#00AFFF</item>
+        <item name="colorPrimaryDark">#0076AD</item>
+        <item name="colorAccent">#00AFFF</item>
+    </style>
+
+    <!-- Light application theme that extends HudTheme.Light -->
+    <style name="AppTheme.Light" parent="HudTheme.Light">
+        <item name="colorPrimary">#007AAD</item>
+        <item name="colorPrimaryDark">#006691</item>
+        <item name="colorAccent">#007AAD</item>
+    </style>
+</resources>
