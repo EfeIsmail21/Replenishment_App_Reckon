@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black"
+    tools:context=".ui.machineaccess.MachineAccessActivity">
+
+    <!-- Status bar at the top -->
+    <RelativeLayout
+        android:id="@+id/status_bar"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_alignParentTop="true"
+        android:background="#151515"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
+
+        <TextView
+            android:id="@+id/tv_header_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="MACHINE ACCESS"
+            android:textColor="#00ffcc"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.1" />
+
+        <TextView
+            android:id="@+id/tv_header_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:text="SCANNING"
+            android:textColor="#00ffcc"
+            android:textSize="14sp" />
+    </RelativeLayout>
+
+    <!-- Content Area -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/status_bar"
+        android:layout_above="@+id/bottom_navigation"
+        android:padding="24dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Instructions -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="SELECT A MACHINE TO CONNECT"
+                android:textColor="#00ffcc"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="24dp"/>
+
+            <!-- Machine Item 1 -->
+            <FrameLayout
+                android:id="@+id/machine_item_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#151515"
+                android:padding="16dp"
+                android:layout_marginBottom="16dp"
+                android:clickable="false"
+                android:enabled="false"
+                android:focusable="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/machine_name_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="REPLENISH STATION 1"
+                        android:textColor="#00ffcc"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="8dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Status: Online"
+                        android:textColor="@android:color/white"
+                        android:textSize="14sp"
+                        android:layout_marginBottom="4dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Location: Assembly Line A"
+                        android:textColor="@android:color/white"
+                        android:textSize="14sp"
+                        android:layout_marginBottom="12dp"/>
+                </LinearLayout>
+            </FrameLayout>
+
+            <!-- Machine Item 2 -->
+            <FrameLayout
+                android:id="@+id/machine_item_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#151515"
+                android:padding="16dp"
+                android:layout_marginBottom="16dp"
+                android:clickable="false"
+                android:enabled="false"
+                android:focusable="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/machine_name_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="REPLENISH STATION 2"
+                        android:textColor="#00ffcc"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="8dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Status: Online"
+                        android:textColor="@android:color/white"
+                        android:textSize="14sp"
+                        android:layout_marginBottom="4dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Location: Assembly Line B"
+                        android:textColor="@android:color/white"
+                        android:textSize="14sp"
+                        android:layout_marginBottom="12dp"/>
+                </LinearLayout>
+            </FrameLayout>
+
+            <!-- Machine Item 3 (Disabled) -->
+            <FrameLayout
+                android:id="@+id/machine_item_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#151515"
+                android:padding="16dp"
+                android:alpha="0.5"
+                android:clickable="false"
+                android:enabled="false"
+                android:focusable="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/machine_name_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="REPLENISH STATION 3"
+                        android:textColor="#666666"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="8dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Status: Offline"
+                        android:textColor="#666666"
+                        android:textSize="14sp"
+                        android:layout_marginBottom="4dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Location: Assembly Line C"
+                        android:textColor="#666666"
+                        android:textSize="14sp"
+                        android:layout_marginBottom="12dp"/>
+                </LinearLayout>
+            </FrameLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Bottom Navigation Bar -->
+    <RelativeLayout
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true"
+        android:background="#151515"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
+
+        <FrameLayout
+            android:id="@+id/btn_back_frame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:clickable="false"
+            android:enabled="false"
+            android:focusable="true">
+            
+            <TextView
+                android:id="@+id/back_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BACK"
+                android:textColor="@android:color/white"
+                android:textStyle="bold" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/btn_refresh_frame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:clickable="false" 
+            android:enabled="false"
+            android:focusable="true">
+            
+            <TextView
+                android:id="@+id/refresh_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="REFRESH"
+                android:textColor="#00ffcc"
+                android:textStyle="bold" />
+        </FrameLayout>
+    </RelativeLayout>
+</RelativeLayout>

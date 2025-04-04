@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black"
+    tools:context=".ui.machinedetails.MachineDetailsActivity">
+
+    <!-- Status bar at the top -->
+    <RelativeLayout
+        android:id="@+id/status_bar"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_alignParentTop="true"
+        android:background="#151515"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
+
+        <TextView
+            android:id="@+id/tv_header_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="REPLENISH STATION 1"
+            android:textColor="#00ffcc"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.1" />
+
+        <TextView
+            android:id="@+id/tv_header_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:text="CONNECTED"
+            android:textColor="#00ffcc"
+            android:textSize="14sp" />
+    </RelativeLayout>
+
+    <!-- Main Content -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/status_bar"
+        android:layout_above="@+id/bottom_bar"
+        android:padding="24dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Machine Status Section -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="MACHINE STATUS"
+                android:textColor="#00ffcc"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="12dp"/>
+
+            <!-- Temperature Card -->
+            <RelativeLayout
+                android:id="@+id/temperature_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#151515"
+                android:padding="16dp"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:id="@+id/tv_temp_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TEMPERATURE"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_alignParentStart="true"/>
+
+                <TextView
+                    android:id="@+id/tv_temp_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="24.5°C"
+                    android:textColor="#00ffcc"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_alignParentEnd="true"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Normal operating range"
+                    android:textColor="#80ffffff"
+                    android:textSize="12sp"
+                    android:layout_below="@id/tv_temp_label"
+                    android:layout_marginTop="4dp"/>
+            </RelativeLayout>
+
+            <!-- Pressure Card -->
+            <RelativeLayout
+                android:id="@+id/pressure_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#151515"
+                android:padding="16dp"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:id="@+id/tv_pressure_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="PRESSURE"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_alignParentStart="true"/>
+
+                <TextView
+                    android:id="@+id/tv_pressure_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="5.2 bar"
+                    android:textColor="#00ffcc"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_alignParentEnd="true"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Normal operating range"
+                    android:textColor="#80ffffff"
+                    android:textSize="12sp"
+                    android:layout_below="@id/tv_pressure_label"
+                    android:layout_marginTop="4dp"/>
+            </RelativeLayout>
+
+            <!-- Inventory Section -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="INVENTORY STATUS"
+                android:textColor="#00ffcc"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="12dp"/>
+
+            <!-- Part 1 Info -->
+            <RelativeLayout
+                android:id="@+id/part1_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#151515"
+                android:padding="16dp"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:id="@+id/tv_part1_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="COMPONENT A-113"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_alignParentStart="true"/>
+
+                <TextView
+                    android:id="@+id/tv_part1_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="87%"
+                    android:textColor="#00ffcc"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_alignParentEnd="true"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="No refill needed"
+                    android:textColor="#80ffffff"
+                    android:textSize="12sp"
+                    android:layout_below="@id/tv_part1_label"
+                    android:layout_marginTop="4dp"/>
+            </RelativeLayout>
+
+            <!-- Part 2 Info -->
+            <RelativeLayout
+                android:id="@+id/part2_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#151515"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/tv_part2_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="COMPONENT B-227"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_alignParentStart="true"/>
+
+                <TextView
+                    android:id="@+id/tv_part2_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="12%"
+                    android:textColor="#FF4444"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_alignParentEnd="true"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="REFILL REQUIRED"
+                    android:textColor="#FF4444"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:layout_below="@id/tv_part2_label"
+                    android:layout_marginTop="4dp"/>
+            </RelativeLayout>
+
+            <!-- Action Button -->
+            <Button
+                android:id="@+id/btn_refill"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="START REFILL PROCESS"
+                android:textColor="@android:color/black"
+                android:background="#00ffcc"
+                android:textStyle="bold"
+                android:padding="16dp"/>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Bottom Navigation Bar -->
+    <RelativeLayout
+        android:id="@+id/bottom_bar"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true"
+        android:background="#151515"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
+
+        <Button
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:text="BACK"
+            android:textColor="@android:color/white"
+            android:background="@android:color/transparent"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_toggle_ar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:text="AR VIEW"
+            android:textColor="#00ffcc"
+            android:background="@android:color/transparent"
+            android:textStyle="bold" />
+    </RelativeLayout>
+</RelativeLayout>

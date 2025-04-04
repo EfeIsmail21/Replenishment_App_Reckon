@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black"
+    tools:context=".ui.settings.SettingsActivity">
+
+    <!-- Status bar at the top -->
+    <RelativeLayout
+        android:id="@+id/status_bar"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_alignParentTop="true"
+        android:background="#151515"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
+
+        <TextView
+            android:id="@+id/tv_header_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="SETTINGS"
+            android:textColor="#00ffcc"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.1" />
+    </RelativeLayout>
+
+    <!-- Main Content -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/status_bar"
+        android:layout_above="@+id/bottom_bar"
+        android:padding="24dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Display Settings Section -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="DISPLAY SETTINGS"
+                android:textColor="#00ffcc"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="12dp"/>
+
+            <!-- Brightness Setting -->
+            <RelativeLayout
+                android:id="@+id/brightness_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#151515"
+                android:padding="16dp"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:id="@+id/tv_brightness_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="BRIGHTNESS"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"/>
+
+                <SeekBar
+                    android:id="@+id/seek_brightness"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_brightness_label"
+                    android:layout_marginTop="8dp"
+                    android:progressTint="#00ffcc"
+                    android:thumbTint="#00ffcc"
+                    android:progress="75"/>
+            </RelativeLayout>
+
+            <!-- Text Size Setting -->
+            <RelativeLayout
+                android:id="@+id/text_size_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#151515"
+                android:padding="16dp"
+                android:layout_marginBottom="24dp">
+
+                <TextView
+                    android:id="@+id/tv_text_size_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TEXT SIZE"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"/>
+
+                <SeekBar
+                    android:id="@+id/seek_text_size"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_text_size_label"
+                    android:layout_marginTop="8dp"
+                    android:progressTint="#00ffcc"
+                    android:thumbTint="#00ffcc"
+                    android:progress="50"/>
+            </RelativeLayout>
+
+            <!-- Connection Settings Section -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="CONNECTION SETTINGS"
+                android:textColor="#00ffcc"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="12dp"/>
+
+            <!-- Wi-Fi Setting -->
+            <RelativeLayout
+                android:id="@+id/wifi_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#151515"
+                android:padding="16dp"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="WI-FI"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"/>
+
+                <Switch
+                    android:id="@+id/switch_wifi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:thumbTint="#00ffcc"
+                    android:trackTint="#007766"
+                    android:checked="true"/>
+            </RelativeLayout>
+
+            <!-- Bluetooth Setting -->
+            <RelativeLayout
+                android:id="@+id/bluetooth_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#151515"
+                android:padding="16dp"
+                android:layout_marginBottom="24dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="BLUETOOTH"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"/>
+
+                <Switch
+                    android:id="@+id/switch_bluetooth"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:thumbTint="#00ffcc"
+                    android:trackTint="#007766"
+                    android:checked="false"/>
+            </RelativeLayout>
+
+            <!-- Account Settings Section -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ACCOUNT SETTINGS"
+                android:textColor="#00ffcc"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="12dp"/>
+
+            <!-- Account Information -->
+            <RelativeLayout
+                android:id="@+id/account_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#151515"
+                android:padding="16dp"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:id="@+id/tv_account_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="USER ACCOUNT"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp"
+                    android:layout_alignParentStart="true"/>
+
+                <TextView
+                    android:id="@+id/tv_account_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="technician@example.com"
+                    android:textColor="#80ffffff"
+                    android:textSize="12sp"
+                    android:layout_below="@id/tv_account_label"
+                    android:layout_marginTop="4dp"/>
+
+                <Button
+                    android:id="@+id/btn_change_password"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="CHANGE PASSWORD"
+                    android:textColor="#00ffcc"
+                    android:background="@android:color/transparent"
+                    android:textStyle="bold"
+                    android:layout_below="@id/tv_account_email"
+                    android:layout_marginTop="4dp"
+                    android:padding="0dp"/>
+            </RelativeLayout>
+
+            <!-- Reset App Button -->
+            <Button
+                android:id="@+id/btn_reset_app"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="RESET APPLICATION"
+                android:textColor="#FF4444"
+                android:background="#151515"
+                android:padding="16dp"
+                android:textStyle="bold"
+                android:layout_marginTop="16dp"/>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Bottom Navigation Bar -->
+    <RelativeLayout
+        android:id="@+id/bottom_bar"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true"
+        android:background="#151515"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
+
+        <Button
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:text="BACK"
+            android:textColor="@android:color/white"
+            android:background="@android:color/transparent"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:text="SAVE"
+            android:textColor="#00ffcc"
+            android:background="@android:color/transparent"
+            android:textStyle="bold" />
+    </RelativeLayout>
+</RelativeLayout>
