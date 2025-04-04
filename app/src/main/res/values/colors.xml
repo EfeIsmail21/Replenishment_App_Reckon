@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="AppTheme" parent="HudTheme">
-        <item name="colorPrimary">#00AFFF</item>
-        <item name="colorPrimaryDark">#0076AD</item>
-        <item name="colorAccent">#00AFFF</item>
-    </style>
-
-    <!-- Light application theme that extends HudTheme.Light -->
-    <style name="AppTheme.Light" parent="HudTheme.Light">
-        <item name="colorPrimary">#007AAD</item>
-        <item name="colorPrimaryDark">#006691</item>
-        <item name="colorAccent">#007AAD</item>
-    </style>
+    <color name="colorPrimary">#00ff7D</color>
+    <color name="colorPrimaryDark">#00d6aa</color>
+    <color name="colorAccent">#00ffcc</color>
+    <color name="cardBackground">#151515</color>
+    <color name="cardFocused">#223333</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
 </resources>

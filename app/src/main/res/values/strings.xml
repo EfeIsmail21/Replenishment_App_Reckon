@@ -1,3 +1,24 @@
 <resources>
     <string name="app_name">Replenish Machine</string>
+    <string name="machine_access">Machine Access</string>
+    <string name="settings">Settings</string>
+    <string name="logout">Logout</string>
+    <string name="app_header">REPLENISH</string>
+    <string name="status_connected">CONNECTED</string>
+    <string name="user_info_format">USER: %s</string>
+    <string name="user_unknown">UNKNOWN</string>
+    <string name="welcome_message">Welcome to Replenish</string>
+    <string name="menu_instructions">Use the menu options below</string>
+    <string name="machine_access_desc">Connect to cabinet by scanning the QR code</string>
+    <string name="machine_access_action">OPEN</string>
+    <string name="settings_desc">Configure application preferences</string>
+    <string name="settings_action">CONFIGURE</string>
+    <string name="logout_desc">Sign out from your account</string>
+    <string name="login">LOGIN</string>
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Password</string>
+    <string name="opening_machine_access">Opening Machine Access</string>
+    <string name="opening_settings">Opening Settings</string>
+    <string name="logout_success">Logged out successfully</string>
+    <string name="logout_failure">Failed to log out: %s</string>
 </resources>

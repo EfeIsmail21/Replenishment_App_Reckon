@@ -15,15 +15,30 @@
         android:theme="@style/Theme.ReplenishMachine"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        
+        <!-- Login screen (entry point) -->
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.login.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
+        <!-- Main application screens -->
+        <activity android:name=".ui.mainmenu.MainMenuActivity" 
+                  android:exported="false" />
+        
+        <activity android:name=".ui.machineaccess.MachineAccessActivity" 
+                  android:exported="false" />
+                  
+        <activity android:name=".ui.machinedetails.MachineDetailsActivity" 
+                  android:exported="false" />
+        
+        <activity android:name=".ui.settings.SettingsActivity" 
+                  android:exported="false" />
+
     </application>
 
 </manifest>
