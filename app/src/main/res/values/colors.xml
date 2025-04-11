@@ -1,10 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#00ff7D</color>
-    <color name="colorPrimaryDark">#00d6aa</color>
-    <color name="colorAccent">#00ffcc</color>
+    <!-- Primary Vuzix color palette -->
+    <color name="colorPrimary">@color/vuzix_green</color>
+    <color name="colorPrimaryDark">@color/vuzix_green_dark</color>
+    <color name="colorAccent">@color/vuzix_green</color>
+
+    <!-- Vuzix standard colors -->
+    <color name="vuzix_green">#00FF7D</color>
+    <color name="vuzix_green_dark">#00CC63</color>
+    <color name="vuzix_white">#FFFFFF</color>
+    <color name="vuzix_yellow">#F2F100</color>
+    <color name="vuzix_red">#FC101B</color>
+    <color name="vuzix_blue">#0091FF</color>
+    
+    <!-- UI colors for Vuzix HUD interface -->
+    <color name="hud_green">@color/vuzix_green</color>
+    <color name="hud_white">@color/vuzix_white</color>
+    <color name="hud_yellow">@color/vuzix_yellow</color>
+    <color name="hud_red">@color/vuzix_red</color>
+    <color name="hud_blue">@color/vuzix_blue</color>
+    
+    <!-- Background and card colors -->
     <color name="cardBackground">#151515</color>
     <color name="cardFocused">#223333</color>
-    <color name="white">#FFFFFF</color>
+    <color name="background">#000000</color>
+    
+    <!-- Standard colors -->
+    <color name="white">@color/vuzix_white</color>
     <color name="black">#000000</color>
 </resources>

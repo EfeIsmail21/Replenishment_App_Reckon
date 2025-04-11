@@ -51,6 +51,17 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <!-- Status Text -->
+            <TextView
+                android:id="@+id/machine_access_status_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Select an option from the menu"
+                android:textColor="#00ffcc"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="24dp"/>
+
             <!-- Instructions -->
             <TextView
                 android:layout_width="match_parent"

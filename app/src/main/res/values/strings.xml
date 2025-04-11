@@ -21,4 +21,32 @@
     <string name="opening_settings">Opening Settings</string>
     <string name="logout_success">Logged out successfully</string>
     <string name="logout_failure">Failed to log out: %s</string>
+    <string name="cabinets">Cabinets</string>
+    <string name="welcome_user_format">Hi, %s!</string>
+    <string name="welcome_default">Welcome</string>
+    <string name="logging_out">Logging out...</string>
+
+    <!-- Machine Access Menu -->
+    <string name="showHelloToast">Machine Access</string>
+    <string name="showVuzixToast">Settings</string>
+    <string name="showBladeToast">Logout</string>
+    <string name="showCenterContent">Center Content</string>
+    <string name="showPopUpMenu">Pop-up Menu</string>
+    <string name="scan_qr_code">Scan QR Code</string>
+    <string name="manual_entry">Manual Entry</string>
+    <string name="recent_machines">Recent Machines</string>
+    <string name="back">Back</string>
+    
+    <!-- Machine Details Menu -->
+    <string name="view_inventory">Inventory</string>
+    <string name="replenish">Replenish</string>
+    <string name="maintenance">Maintenance</string>
+    <string name="report_issue">Report Issue</string>
+    
+    <!-- Menu descriptions for ActionMenuActivity focus -->
+    <string name="menu_description_machine_access">Scan a machine QR code to access its details.</string>
+    <string name="menu_description_settings">View or change application settings.</string>
+    <string name="menu_description_logout">Log out from the application.</string>
+    <string name="test_menu_item_1">test menu item 1</string>
+
 </resources>

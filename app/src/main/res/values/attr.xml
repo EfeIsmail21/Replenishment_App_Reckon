@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Custom Attributes for use with Vuzix HUD -->
+    <attr name="imageHeaderTintColor" format="color"/>
+    <attr name="valueTextColor" format="color"/>
+    <attr name="backgroundColor" format="color"/>
+    <attr name="circleColorNormal" format="color"/>
+    <attr name="selectionColor" format="color"/>
+    
+    <!-- Custom attribute for the action menu -->
+    <attr name="actionMenuItemStyle" format="reference"/>
+    <attr name="actionMenuItemSelectedStyle" format="reference"/>
+</resources>

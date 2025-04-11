@@ -61,6 +61,16 @@
                 android:textStyle="bold"
                 android:layout_marginBottom="12dp"/>
 
+            <!-- Status Text for ActionMenu -->
+            <TextView
+                android:id="@+id/machine_details_status_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Select an option from the menu"
+                android:textColor="#00ffcc"
+                android:textSize="14sp"
+                android:layout_marginBottom="12dp"/>
+
             <!-- Temperature Card -->
             <RelativeLayout
                 android:id="@+id/temperature_card"

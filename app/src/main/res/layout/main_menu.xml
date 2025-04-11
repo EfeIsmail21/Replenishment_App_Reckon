@@ -1,192 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@android:color/black">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent" android:layout_height="match_parent">
 
-    <!-- Status bar at the top (optimized for Vuzix) -->
-    <RelativeLayout
-        android:id="@+id/status_bar"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_alignParentTop="true"
-        android:background="#151515"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp">
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical">
 
         <TextView
-            android:id="@+id/tv_header_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:text="REPLENISH"
-            android:textColor="#00ffcc"
-            android:textSize="18sp"
+            android:id="@+id/main_title"
+            android:textSize="22sp"
             android:textStyle="bold"
-            android:letterSpacing="0.1" />
-
-        <TextView
-            android:id="@+id/tv_user_info"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="@string/user_unknown"
-            android:textColor="@android:color/white"
-            android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/tv_header_status"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:text="@string/status_connected"
-            android:textColor="#00ffcc"
-            android:textSize="14sp" />
-    </RelativeLayout>
-
-    <!-- Main content area -->
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/status_bar"
-        android:layout_above="@+id/action_menu_bar">
-
-        <!-- Central content showing welcome message -->
-        <LinearLayout
+            android:fontFamily="sans-serif-condensed"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:padding="24dp">
+            android:text=""/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/welcome_message"
-                android:textColor="#00ffcc"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                android:layout_marginBottom="16dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/menu_instructions"
-                android:textColor="@android:color/white"
-                android:textSize="16sp"/>
-        </LinearLayout>
-    </RelativeLayout>
-
-    <!-- Action menu bar at the bottom (Vuzix style) -->
-    <LinearLayout
-        android:id="@+id/action_menu_bar"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_alignParentBottom="true"
-        android:background="@color/cardBackground"
-        android:orientation="horizontal"
-        android:baselineAligned="false">
-
-        <!-- Machine Access Icon -->
-        <FrameLayout
-            android:id="@+id/btn_machine_access"
+        <Space
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:clickable="true"
-            android:focusable="true"
-            android:background="?attr/selectableItemBackground">
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="28dp"
-                    android:layout_height="28dp"
-                    android:src="@android:drawable/ic_menu_camera"
-                    app:tint="#00ffcc"
-                    android:contentDescription="@string/machine_access"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/machine_access"
-                    android:textColor="#00ffcc"
-                    android:textSize="14sp"
-                    android:layout_marginTop="4dp"/>
-            </LinearLayout>
-        </FrameLayout>
-
-        <!-- Settings Icon -->
-        <FrameLayout
-            android:id="@+id/btn_settings"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:clickable="true"
-            android:focusable="true"
-            android:background="?attr/selectableItemBackground">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="28dp"
-                    android:layout_height="28dp"
-                    android:src="@android:drawable/ic_menu_preferences"
-                    app:tint="#00ffcc"
-                    android:contentDescription="@string/settings"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/settings"
-                    android:textColor="#00ffcc"
-                    android:textSize="14sp"
-                    android:layout_marginTop="4dp"/>
-            </LinearLayout>
-        </FrameLayout>
-
-        <!-- Logout Icon -->
-        <FrameLayout
-            android:id="@+id/btn_logout"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:clickable="true"
-            android:focusable="true"
-            android:background="?attr/selectableItemBackground">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="28dp"
-                    android:layout_height="28dp"
-                    android:src="@android:drawable/ic_menu_revert"
-                    app:tint="#00ffcc"
-                    android:contentDescription="@string/logout"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/logout"
-                    android:textColor="#00ffcc"
-                    android:textSize="14sp"
-                    android:layout_marginTop="4dp"/>
-            </LinearLayout>
-        </FrameLayout>
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:ignore="ContentDescription" />
     </LinearLayout>
+
+    <!--Utilize something similar to this SPACE item to understand the dimensions of the ActionMenu
+    and your available real state.-->
+    <Space
+        android:id="@+id/menu_placeholder"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/action_menu_height"
+        android:layout_centerInParent="true"/>
+
+    <!--This item has some custom Attributes from our ATTRIBUTES files. ?valueTextColor.
+    For more information on this kind of reference please refer to:
+    https://developer.android.com/training/custom-views/create-view
+    -->
+    <TextView
+        android:id="@+id/main_value"
+        android:fontFamily="sans-serif-condensed"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/menu_placeholder"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:text="Replenishment App"/>
+
+
 </RelativeLayout>
