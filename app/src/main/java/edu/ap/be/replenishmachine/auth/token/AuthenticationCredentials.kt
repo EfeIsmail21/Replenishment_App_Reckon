@@ -1,6 +1,6 @@
 package edu.ap.be.replenishmachine.auth.token
 
-import edu.ap.be.replenishmachine.auth.model.UserData
+import edu.ap.be.replenishmachine.model.UserData
 
 /**
  * Data class representing a complete set of authentication credentials.

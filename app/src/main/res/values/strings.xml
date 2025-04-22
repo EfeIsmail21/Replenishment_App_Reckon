@@ -24,7 +24,11 @@
     <string name="cabinets">Cabinets</string>
     <string name="welcome_user_format">Hi, %s!</string>
     <string name="welcome_default">Welcome</string>
-    <string name="logging_out">Logging out...</string>
+    <string name="logging_out">Logging out…</string>
+    <string name="loading_machine_details">Loading machine details…</string>
+    <string name="machineIdTextView">Machine ID: %s</string>
+
+
 
     <!-- Machine Access Menu -->
     <string name="showHelloToast">Machine Access</string>
@@ -33,9 +37,13 @@
     <string name="showCenterContent">Center Content</string>
     <string name="showPopUpMenu">Pop-up Menu</string>
     <string name="scan_qr_code">Scan QR Code</string>
+    <string name="show_list_machines_org">Show list of Machines</string>
     <string name="manual_entry">Manual Entry</string>
     <string name="recent_machines">Recent Machines</string>
-    <string name="back">Back</string>
+    <string name="unlock_machine">Unlock</string>
+    <string name="lock_machine">Lock</string>
+    <string name="machine_id_format">Machine ID: %s</string>
+    <string name="machine_id_placeholder">Machine ID: </string>
     
     <!-- Machine Details Menu -->
     <string name="view_inventory">Inventory</string>
@@ -48,5 +56,23 @@
     <string name="menu_description_settings">View or change application settings.</string>
     <string name="menu_description_logout">Log out from the application.</string>
     <string name="test_menu_item_1">test menu item 1</string>
+
+    <!-- Machine List -->
+    <string name="machines_list_title">Machines</string>
+    <string name="refresh_machines">Refresh</string>
+    <string name="back_to_machine_menu">Back</string>
+    <string name="loading_machines">Loading machines…</string>
+    <string name="machines_count">Loaded %d machines</string>
+    <string name="error_loading_machines">Error: %s</string>
+    <string name="no_machines_found">No machines found</string>
+    <string name="machine_icon">Machine icon</string>
+    <string name="machines">Machines</string>
+
+    <!-- Interior machine menu -->
+    <string name="machine_unlocked_instructions">Machine is unlocked.\nSelect an option from the menu below to continue.</string>
+    <string name="scan_product">Scan Product</string>
+    <string name="search_product">Search Product</string>
+    <string name="back">Back</string>
+
 
 </resources>

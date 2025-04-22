@@ -6,6 +6,12 @@
         android:title="@string/scan_qr_code"
         android:icon="@android:drawable/ic_menu_camera"
         android:onClick="scanQRCode" />
+        
+    <item
+        android:id="@+id/action_enter_pin"
+        android:title="@string/show_list_machines_org"
+        android:icon="@android:drawable/ic_menu_edit"
+        android:onClick="showListOfMachinesInOrganisation" />
     <!-- Add other machine-related actions here later -->
 
 </menu>

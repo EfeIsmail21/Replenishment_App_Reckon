@@ -2,12 +2,15 @@ package edu.ap.be.replenishmachine.auth.manager
 
 import android.content.Context
 import android.util.Log
-import edu.ap.be.replenishmachine.auth.model.UserData
+import edu.ap.be.replenishmachine.model.Machine
+import edu.ap.be.replenishmachine.model.UserData
 import edu.ap.be.replenishmachine.auth.provider.AuthenticationProvider
+import edu.ap.be.replenishmachine.auth.provider.ReckonAuthProvider
 import edu.ap.be.replenishmachine.auth.token.AuthenticationCredentials
 import edu.ap.be.replenishmachine.auth.token.storage.TokenStorage
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import org.json.JSONObject
 
 /**
  * Central manager class for authentication operations.
@@ -60,7 +63,7 @@ class AuthManager(
 
         // Save all credentials for future use
         tokenStorage.saveCredentials(credentials)
-        
+
         return credentials
     }
 
@@ -72,17 +75,17 @@ class AuthManager(
      */
     suspend fun refreshAuthentication(): AuthenticationCredentials = withContext(Dispatchers.IO) {
         val currentCredentials = tokenStorage.getCurrentCredentials()
-        
+
         // We only need to refresh the auth token and secret
         val newSecret = authProvider.obtainSecret()
         val newAuthToken = authProvider.generateAuthToken(currentCredentials.userToken)
-        
+
         val refreshedCredentials = currentCredentials.copy(
             secret = newSecret,
             authToken = newAuthToken,
             expiresAt = System.currentTimeMillis() + AUTH_TOKEN_EXPIRATION
         )
-        
+
         tokenStorage.saveCredentials(refreshedCredentials)
         return@withContext refreshedCredentials
     }
@@ -95,10 +98,10 @@ class AuthManager(
     suspend fun getValidCredentials(): AuthenticationCredentials {
         val currentCredentials = tokenStorage.getCurrentCredentials()
         return if (isCredentialsExpired(currentCredentials)) {
-            Log.d("AuthManager", "Auth token expired, refreshing")
+            Log.d("AuthManager", "getValidCredentials: Auth token expired, refreshing")
             refreshAuthentication()
         } else {
-            Log.d("AuthManager", "Using existing auth token")
+            Log.d("AuthManager", "getValidCredentials: Using existing auth token")
             currentCredentials
         }
     }
@@ -144,6 +147,118 @@ class AuthManager(
         // Add a small buffer (30 seconds) to avoid edge cases
         val bufferTime = 30 * 1000L
         return credentials.expiresAt <= (System.currentTimeMillis() + bufferTime)
+    }
+
+    /**
+     * Retrieves machines for the organization of the logged-in user.
+     * Automatically handles token refreshing if needed.
+     *
+     * @return List of machines in the user's organization
+     */
+    suspend fun getMachinesForOrganization(): List<Machine> {
+        // First ensure we have valid credentials
+        Log.d("AuthManager", "getMachinesForOrganization: Getting valid credentials")
+        val credentials = getValidCredentials()
+        Log.d(
+            "AuthManager",
+            "getMachinesForOrganization: Got valid credentials for user: ${credentials.userData.username}"
+        )
+        Log.d(
+            "AuthManager",
+            "getMachinesForOrganization: Using organization ID: ${credentials.userData.organizationId}"
+        )
+        Log.d(
+            "AuthManager",
+            "getMachinesForOrganization: Using entity ID: ${credentials.userData.entityId}"
+        )
+
+        // Get organization ID from the user data
+        val organizationId = credentials.userData.organizationId
+        val entityId = credentials.userData.entityId
+
+        Log.d(
+            "AuthManager",
+            "getMachinesForOrganization: Calling ReckonAuthProvider.getMachinesForOrganization"
+        )
+        Log.d("AuthManager", "getMachinesForOrganization: organizationId=$organizationId")
+        Log.d("AuthManager", "getMachinesForOrganization: entityId=$entityId")
+        Log.d("AuthManager", "getMachinesForOrganization: secret=${credentials.secret.take(5)}...")
+        Log.d(
+            "AuthManager",
+            "getMachinesForOrganization: authToken=${credentials.authToken.take(5)}..."
+        )
+        Log.d(
+            "AuthManager",
+            "getMachinesForOrganization: userToken=${credentials.userToken.take(5)}..."
+        )
+
+        // Add a check to see if any tokens are empty
+        if (credentials.secret.isEmpty()) {
+            Log.e("AuthManager", "getMachinesForOrganization: ERROR - secret token is empty!")
+        }
+        if (credentials.authToken.isEmpty()) {
+            Log.e("AuthManager", "getMachinesForOrganization: ERROR - auth token is empty!")
+        }
+        if (credentials.userToken.isEmpty()) {
+            Log.e("AuthManager", "getMachinesForOrganization: ERROR - user token is empty!")
+        }
+        if (entityId.isEmpty()) {
+            Log.e("AuthManager", "getMachinesForOrganization: ERROR - entity ID is empty!")
+        }
+
+        return try {
+            val machines = (authProvider as ReckonAuthProvider).getMachinesForOrganization(
+                organizationId = organizationId,
+                secret = credentials.secret,
+                authToken = credentials.authToken,
+                userToken = credentials.userToken,
+                entityId = entityId
+            )
+            Log.d(
+                "AuthManager",
+                "getMachinesForOrganization: Successfully retrieved ${machines.size} machines"
+            )
+            machines
+        } catch (e: Exception) {
+            Log.e("AuthManager", "getMachinesForOrganization: Error retrieving machines", e)
+            Log.e("AuthManager", "getMachinesForOrganization: Error message: ${e.message}")
+            Log.e(
+                "AuthManager",
+                "getMachinesForOrganization: Stack trace: ${e.stackTraceToString()}"
+            )
+            throw e
+        }
+    }
+
+    /**
+     * Retrieves stocks information for a specific machine.
+     *
+     * @param machineId The ID of the machine to get stocks for
+     * @return JSONObject containing the machine's stock information
+     */
+    suspend fun getMachineStocks(machineId: String): JSONObject {
+        // First ensure we have valid credentials
+        Log.d("AuthManager", "getMachineStocks: Getting valid credentials")
+        val credentials = getValidCredentials()
+        Log.d("AuthManager", "getMachineStocks: Got valid credentials")
+
+        val entityId = credentials.userData.entityId
+
+        Log.d("AuthManager", "getMachineStocks: Calling ReckonAuthProvider.getMachineStocks")
+        Log.d("AuthManager", "getMachineStocks: machineId=$machineId")
+        Log.d("AuthManager", "getMachineStocks: entityId=$entityId")
+
+        return try {
+            (authProvider as ReckonAuthProvider).getMachineStocks(
+                machineId = machineId,
+                authToken = credentials.authToken,
+                userToken = credentials.userToken,
+                entityId = entityId
+            )
+        } catch (e: Exception) {
+            Log.e("AuthManager", "getMachineStocks: Error retrieving machine stocks", e)
+            throw e
+        }
     }
 
     companion object {

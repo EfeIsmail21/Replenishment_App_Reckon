@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/action_unlock"
+        android:title="@string/unlock_machine"
+        android:icon="@android:drawable/ic_lock_power_off"
+        android:onClick="unlockMachine" />
+        
+    <item
+        android:id="@+id/action_lock"
+        android:title="@string/lock_machine"
+        android:icon="@android:drawable/ic_lock_lock"
+        android:onClick="lockMachine" />
+        
+    <item
+        android:id="@+id/action_back"
+        android:title="@string/back"
+        android:icon="@android:drawable/ic_menu_revert"
+        android:onClick="goBack" />
+
+</menu>

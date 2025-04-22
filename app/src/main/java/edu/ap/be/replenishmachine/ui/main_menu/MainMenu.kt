@@ -16,7 +16,7 @@ import edu.ap.be.replenishmachine.auth.manager.AuthManager
 import edu.ap.be.replenishmachine.auth.provider.ReckonAuthProvider
 import edu.ap.be.replenishmachine.auth.token.storage.SharedPrefsTokenStorage
 import edu.ap.be.replenishmachine.ui.login.LoginActivity
-import edu.ap.be.replenishmachine.ui.machine.MachineMenu
+import edu.ap.be.replenishmachine.ui.machine.main.MachineMenu
 import edu.ap.be.replenishmachine.ui.settings.SettingsMenu
 import kotlinx.coroutines.launch
 
@@ -66,7 +66,11 @@ class MainMenu : ActionMenuActivity() {
         lifecycleScope.launch {
             try {
                 val userData = authManager.getUserData()
-                mainTitleTextView.text = getString(R.string.welcome_user_format, userData.username)
+                mainTitleTextView.text = getString(
+                    R.string.welcome_user_format, 
+                    "${userData.username} from ${userData.organizationName} at ${userData.organizationId}"
+                )
+
             } catch (e: Exception) {
                 Log.e(TAG, "Failed to get user data for title", e)
                 mainTitleTextView.text = getString(R.string.welcome_default)
@@ -91,7 +95,7 @@ class MainMenu : ActionMenuActivity() {
         return true
     }
 
-    override fun getActionMenuGravity(): Int = Gravity.CENTER
+    override fun getActionMenuGravity(): Int = Gravity.BOTTOM
 
     private fun updateMenuItems() {
         if (::mainIconImageView.isInitialized) {

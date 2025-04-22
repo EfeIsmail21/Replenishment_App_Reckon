@@ -1,4 +1,4 @@
-package edu.ap.be.replenishmachine.auth.model
+package edu.ap.be.replenishmachine.model
 
 
 data class UserRole(

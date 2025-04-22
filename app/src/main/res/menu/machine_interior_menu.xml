@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_scan_product"
+        android:title="@string/scan_product"
+        android:icon="@android:drawable/ic_menu_camera"
+        android:onClick="scanProduct" />
+
+    <item
+        android:id="@+id/action_search_product"
+        android:title="@string/search_product"
+        android:icon="@android:drawable/ic_menu_search"
+        android:onClick="searchProduct" />
+
+    <item
+        android:id="@+id/action_back"
+        android:title="@string/back"
+        android:icon="@android:drawable/ic_menu_revert"
+        android:onClick="goBack" />
+</menu>
