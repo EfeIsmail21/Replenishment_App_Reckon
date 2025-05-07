@@ -26,7 +26,6 @@ import java.util.concurrent.TimeUnit
 import okhttp3.RequestBody.Companion.toRequestBody
 import edu.ap.be.replenishmachine.ui.machine.interior.MachineInteriorActivity
 
-
 class MachineAccessActivity : ActionMenuActivity() {
     private lateinit var machineIdTextView: TextView
     private lateinit var loadingView: View
@@ -36,6 +35,7 @@ class MachineAccessActivity : ActionMenuActivity() {
     private var machineCode: String = ""
     private var machineOrg: String = ""
     private lateinit var authManager: AuthManager
+    private var isLoading = false
     
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -104,32 +104,34 @@ class MachineAccessActivity : ActionMenuActivity() {
         machineIdTextView.text = displayText 
         Log.d(TAG, "Machine details displayed - ID: $machineId, Code: $machineCode, Org: $machineOrg")
     }
-    
-    private fun showLoading(isLoading: Boolean) {
-        if (isLoading) {
+
+    private fun showLoading(isLoadingState: Boolean) {
+        this.isLoading = isLoadingState
+        if (isLoadingState) {
             loadingView.visibility = View.VISIBLE
             machineIdTextView.visibility = View.GONE
         } else {
             loadingView.visibility = View.GONE
             machineIdTextView.visibility = View.VISIBLE
         }
+        invalidateOptionsMenu() // Force menu to redraw
     }
 
     override fun onCreateActionMenu(menu: Menu): Boolean {
         super.onCreateActionMenu(menu)
         Log.d(TAG, "onCreateActionMenu: Inflating menu")
-        
+
         menuInflater.inflate(R.menu.machine_access_menu, menu)
         
         return true
     }
 
     override fun alwaysShowActionMenu(): Boolean {
-        return true
+        return !isLoading
     }
     
     override fun getActionMenuGravity(): Int {
-        return Gravity.BOTTOM
+        return Gravity.CENTER
     }
     
     fun lockMachine(item: MenuItem?) {

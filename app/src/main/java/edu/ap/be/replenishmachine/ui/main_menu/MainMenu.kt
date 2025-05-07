@@ -66,9 +66,14 @@ class MainMenu : ActionMenuActivity() {
         lifecycleScope.launch {
             try {
                 val userData = authManager.getUserData()
+
+                // Capitalize the first letter of username and organization name
+                val capitalizedUsername = userData.username.capitalize()
+                val capitalizedOrgName = userData.organizationName.capitalize()
+
                 mainTitleTextView.text = getString(
-                    R.string.welcome_user_format, 
-                    "${userData.username} from ${userData.organizationName} at ${userData.organizationId}"
+                    R.string.welcome_user_format,
+                    "$capitalizedUsername from $capitalizedOrgName"
                 )
 
             } catch (e: Exception) {
@@ -95,7 +100,7 @@ class MainMenu : ActionMenuActivity() {
         return true
     }
 
-    override fun getActionMenuGravity(): Int = Gravity.BOTTOM
+    override fun getActionMenuGravity(): Int = Gravity.CENTER
 
     private fun updateMenuItems() {
         if (::mainIconImageView.isInitialized) {

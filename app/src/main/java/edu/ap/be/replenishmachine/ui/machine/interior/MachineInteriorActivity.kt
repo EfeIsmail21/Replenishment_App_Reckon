@@ -7,8 +7,11 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.TextView
 import android.widget.Toast
+import android.content.Intent
+import android.view.View
 import com.vuzix.hud.actionmenu.ActionMenuActivity
 import edu.ap.be.replenishmachine.R
+import edu.ap.be.replenishmachine.ui.replen.list_product.ProductGridActivity
 
 /**
  * Activity for interacting with a machine after it has been unlocked.
@@ -47,7 +50,7 @@ class MachineInteriorActivity : ActionMenuActivity() {
             }
             
             // Display machine information
-            machineIdTextView.text = "INSIDE: $machineCode ($machineOrg)"
+            machineIdTextView.text = "Machine ID: $machineCode ($machineOrg)"
             Log.d(TAG, "MachineInteriorActivity created for machine: $machineCode (ID: $machineId)")
         } catch (e: Exception) {
             Log.e(TAG, "Exception in onCreate", e)
@@ -73,7 +76,7 @@ class MachineInteriorActivity : ActionMenuActivity() {
     }
     
     override fun getActionMenuGravity(): Int {
-        return Gravity.BOTTOM
+        return Gravity.CENTER
     }
     
     fun scanProduct(item: MenuItem?) {
@@ -84,12 +87,11 @@ class MachineInteriorActivity : ActionMenuActivity() {
     
     fun searchProduct(item: MenuItem?) {
         Log.d(TAG, "searchProduct: Button clicked")
-        Toast.makeText(this, "Search Product functionality coming soon", Toast.LENGTH_SHORT).show()
-        // Will implement later
-    }
-    
-    fun goBack(item: MenuItem?) {
-        Log.d(TAG, "goBack: Button clicked")
-        finish()
+        // We don't need loading here since we're just navigating
+        val intent = Intent(this, ProductGridActivity::class.java).apply {
+            putExtra("machine_id", machineId)
+            putExtra("machine_code", machineCode)
+        }
+        startActivity(intent)
     }
 }

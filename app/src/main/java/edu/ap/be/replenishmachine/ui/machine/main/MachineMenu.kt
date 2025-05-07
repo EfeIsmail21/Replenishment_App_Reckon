@@ -7,17 +7,26 @@ import android.util.Log
 import android.view.Gravity
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.lifecycle.lifecycleScope
 import com.google.zxing.integration.android.IntentIntegrator
 import com.vuzix.hud.actionmenu.ActionMenuActivity
 import edu.ap.be.replenishmachine.R
+import edu.ap.be.replenishmachine.auth.manager.AuthManager
+import edu.ap.be.replenishmachine.auth.provider.ReckonAuthProvider
+import edu.ap.be.replenishmachine.auth.token.storage.SharedPrefsTokenStorage
 import edu.ap.be.replenishmachine.ui.machine.access.MachineAccessActivity
-import edu.ap.be.replenishmachine.ui.machine.list.MachineListActivity
+import edu.ap.be.replenishmachine.ui.machine.machine_list.MachineListActivity
+import kotlinx.coroutines.launch
 import org.json.JSONObject
 
 class MachineMenu : ActionMenuActivity() {
     private lateinit var machineListMenuItem: MenuItem
+    private lateinit var titleTextView: TextView
+    private lateinit var organizationTextView: TextView
+    private lateinit var authManager: AuthManager
 
     private val TAG = "MachineMenu"
     
@@ -40,6 +49,36 @@ class MachineMenu : ActionMenuActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.d(TAG, "onCreate: MachineMenu started")
+        setContentView(R.layout.machine_menu_layout)
+
+        titleTextView = findViewById(R.id.machine_title)
+        organizationTextView = findViewById(R.id.machine_organization)
+
+        // Initialize AuthManager
+        val tokenStorage = SharedPrefsTokenStorage(this)
+        val authProvider = ReckonAuthProvider(
+            secretEndpoint = "https://buybye-dev.reckon.ai/admin/test",
+            userTokenEndpoint = "https://auth-dev.reckon.ai/app/send",
+            authTokenEndpoint = "https://auth-dev.reckon.ai/app/send"
+        )
+        authManager = AuthManager(this, authProvider, tokenStorage)
+
+        // Fetch user data to show organization
+        fetchUserDataAndUpdateOrganization()
+    }
+
+    private fun fetchUserDataAndUpdateOrganization() {
+        lifecycleScope.launch {
+            try {
+                val userData = authManager.getUserData()
+                // Capitalize the organization name
+                val capitalizedOrgName = userData.organizationName.capitalize()
+                organizationTextView.text = "Organization: $capitalizedOrgName"
+            } catch (e: Exception) {
+                Log.e(TAG, "Failed to get organization data", e)
+                organizationTextView.text = "Organization: Unknown"
+            }
+        }
     }
 
     override fun onCreateActionMenu(menu: Menu): Boolean {

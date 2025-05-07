@@ -3,53 +3,53 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
-    <LinearLayout
+    <!-- Title at the top - "REPLENISHMENT APP" -->
+    <TextView
+        android:id="@+id/app_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical">
+        android:layout_alignParentTop="true"
+        android:gravity="center"
+        android:padding="8dp"
+        android:text="REPLENISHMENT APP"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:fontFamily="sans-serif-condensed" />
 
-        <TextView
-            android:id="@+id/main_title"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            android:fontFamily="sans-serif-condensed"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text=""/>
-
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
-
-        <ImageView
-            android:id="@+id/icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:ignore="ContentDescription" />
-    </LinearLayout>
-
-    <!--Utilize something similar to this SPACE item to understand the dimensions of the ActionMenu
-    and your available real state.-->
+    <!--Placeholder for the ActionMenu which will be centered -->
     <Space
         android:id="@+id/menu_placeholder"
         android:layout_width="match_parent"
         android:layout_height="@dimen/action_menu_height"
         android:layout_centerInParent="true"/>
 
-    <!--This item has some custom Attributes from our ATTRIBUTES files. ?valueTextColor.
-    For more information on this kind of reference please refer to:
-    https://developer.android.com/training/custom-views/create-view
-    -->
+    <!-- User greeting that will appear at the bottom -->
+    <TextView
+        android:id="@+id/main_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="50dp"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:textColor="@color/vuzix_green"
+        android:fontFamily="sans-serif-condensed"
+        android:text="" />
+
+    <!-- Keep this for compatibility but make invisible -->
     <TextView
         android:id="@+id/main_value"
-        android:fontFamily="sans-serif-condensed"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/menu_placeholder"
-        android:layout_centerInParent="true"
-        android:gravity="center"
-        android:text="Replenishment App"/>
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone" />
 
+    <!-- Keep this for compatibility but make invisible -->
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        tools:ignore="ContentDescription" />
 
 </RelativeLayout>

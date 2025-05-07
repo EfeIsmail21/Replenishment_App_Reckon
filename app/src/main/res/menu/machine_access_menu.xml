@@ -12,11 +12,5 @@
         android:title="@string/lock_machine"
         android:icon="@android:drawable/ic_lock_lock"
         android:onClick="lockMachine" />
-        
-    <item
-        android:id="@+id/action_back"
-        android:title="@string/back"
-        android:icon="@android:drawable/ic_menu_revert"
-        android:onClick="goBack" />
 
 </menu>

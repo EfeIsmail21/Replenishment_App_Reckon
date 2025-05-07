@@ -1,4 +1,4 @@
-package edu.ap.be.replenishmachine.ui.machine.list
+package edu.ap.be.replenishmachine.ui.machine.machine_list
 
 import android.view.LayoutInflater
 import android.view.View

@@ -1,41 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000000"
-    android:padding="16dp">
+    android:background="#000000">
+
+    <!-- Title at the top -->
+    <TextView
+        android:id="@+id/titleHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:gravity="center"
+        android:padding="8dp"
+        android:text="MACHINE ACCESS"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:fontFamily="sans-serif-condensed" />
 
     <!-- Machine ID Text -->
     <TextView
         android:id="@+id/machineIdTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:textColor="#FFFFFF"
-        android:textSize="24sp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="50dp"
         android:gravity="center"
-        android:textStyle="bold" />
+        android:textSize="16sp"
+        android:textColor="@color/vuzix_green"
+        android:fontFamily="sans-serif-condensed" />
         
     <!-- Loading View -->
     <LinearLayout
         android:id="@+id/loadingView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_below="@id/titleHeader"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="40dp"
+        android:padding="16dp"
+        android:background="#1A000000"
         android:gravity="center"
         android:orientation="vertical"
         android:visibility="gone">
         
         <ProgressBar
             android:layout_width="48dp"
-            android:layout_height="48dp" />
+            android:layout_height="48dp"
+            android:indeterminateTint="@color/vuzix_green" />
             
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="@string/loading_machine_details"
-            android:textColor="#FFFFFF" />
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:fontFamily="sans-serif-condensed" />
     </LinearLayout>
+
+    <!--Placeholder for the ActionMenu which will be centered -->
+    <Space
+        android:id="@+id/menu_placeholder"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/action_menu_height"
+        android:layout_centerInParent="true" />
 
 </RelativeLayout>

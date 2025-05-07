@@ -1,27 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#000000">
 
+    <!-- Title at the top -->
+    <TextView
+        android:id="@+id/titleHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:gravity="center"
+        android:padding="8dp"
+        android:text="MACHINE INTERIOR"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:fontFamily="sans-serif-condensed" />
+
+    <!-- Machine ID text above menu -->
     <TextView
         android:id="@+id/machineIdTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/menu_placeholder"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
+        android:layout_marginBottom="20dp"
+        android:textSize="16sp"
         android:textColor="#FFFFFF"
-        android:textSize="24sp"
-        android:text="Machine ID" />
-        
+        android:fontFamily="sans-serif-condensed"
+        android:gravity="center" />
+
+    <!--Placeholder for the ActionMenu which will be centered -->
+    <Space
+        android:id="@+id/menu_placeholder"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/action_menu_height"
+        android:layout_centerInParent="true" />
+
+    <!-- Status text - instructions are centered at the bottom of the screen -->
     <TextView
         android:id="@+id/statusTextView"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp"
+        android:gravity="center"
         android:text="@string/machine_unlocked_instructions"
-        android:textColor="#00FFCC"
-        android:textSize="18sp"
-        android:gravity="center" />
+        android:textSize="16sp"
+        android:textColor="@color/vuzix_green"
+        android:fontFamily="sans-serif-condensed" />
 
 </RelativeLayout>

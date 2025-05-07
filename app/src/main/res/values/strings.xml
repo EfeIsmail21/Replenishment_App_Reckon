@@ -69,7 +69,7 @@
     <string name="machines">Machines</string>
 
     <!-- Interior machine menu -->
-    <string name="machine_unlocked_instructions">Machine is unlocked.\nSelect an option from the menu below to continue.</string>
+    <string name="machine_unlocked_instructions">Machine is unlocked.\nSelect an option from the menu above to continue.</string>
     <string name="scan_product">Scan Product</string>
     <string name="search_product">Search Product</string>
     <string name="back">Back</string>

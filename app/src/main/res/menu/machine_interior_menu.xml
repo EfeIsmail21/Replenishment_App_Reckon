@@ -11,10 +11,4 @@
         android:title="@string/search_product"
         android:icon="@android:drawable/ic_menu_search"
         android:onClick="searchProduct" />
-
-    <item
-        android:id="@+id/action_back"
-        android:title="@string/back"
-        android:icon="@android:drawable/ic_menu_revert"
-        android:onClick="goBack" />
 </menu>

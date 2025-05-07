@@ -13,6 +13,7 @@
     <application
         android:usesCleartextTraffic="true"
         android:theme="@style/HudTheme"
+        android:networkSecurityConfig="@xml/network_security_config"
         tools:replace="android:theme">
         
         <!-- Login screen (entry point) -->
@@ -34,7 +35,7 @@
                     android:exported="false"/>
 
         <activity
-            android:name=".ui.machine.list.MachineListActivity"
+            android:name=".ui.machine.machine_list.MachineListActivity"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
 
@@ -51,6 +52,25 @@
             android:theme="@style/HudTheme"
             android:exported="false" />
 
+        <activity
+            android:name=".ui.replen.list_product.ProductGridActivity"
+            android:exported="false"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.ReplenishMachine">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+
+        <activity
+            android:name=".ui.replen.list_product.ProductDetailActivity"
+            android:exported="false"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.ReplenishMachine">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
 
     </application>
 </manifest>
